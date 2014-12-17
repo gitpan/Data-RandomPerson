@@ -1,11 +1,30 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Data-RandomPerson
-version:      0.4
-version_from: lib/Data/RandomPerson.pm
-installdirs:  site
+---
+abstract: 'Create random person data.'
+author:
+  - 'Michiel Beijen <michiel.beijen@gmail.com>'
+build_requires:
+  File::Spec: '0'
+  IO::Handle: '0'
+  IPC::Open3: '0'
+  Test::More: '0.88'
+  Time::Local: '1.18'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.143240'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Data-RandomPerson
 requires:
-    Date::Calc:                    0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.30
+  Data::Random: '0'
+  Date::Calc: '0'
+  perl: '5.008007'
+resources:
+  bugtracker: https://github.com/mbeijen/Data-RandomPerson/issues
+  homepage: https://github.com/mbeijen/Data-RandomPerson
+  repository: https://github.com/mbeijen/Data-RandomPerson.git
+version: '0.50'
+x_contributors:
+  - 'Peter Hickman <peterhickman386@googlemail.com>'

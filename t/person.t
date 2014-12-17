@@ -1,12 +1,10 @@
 #!/usr/bin/perl
 
-# $Id: person.t,v 1.4 2005/05/14 12:31:55 peterhickman Exp $
-
 use strict;
 use warnings;
 
-use Date::Calc qw/check_date/;
 use Test::More tests => 327;
+use Time::Local;
 
 use_ok('Data::RandomPerson');
 
@@ -65,7 +63,12 @@ foreach ( 1 .. 20 ) {
 
     my ( $year, $month, $day ) = $p->{dob} =~ m/^(\d+)-(\d+)-(\d+)$/;
 
-    ok( check_date( $year, $month, $day ) );
+    ok( check_date( $year, $month, $day ), 'Test for valid DOB' ) or diag( $@ );
 }
 
-# vim: syntax=perl :
+sub check_date {
+    my ($year, $month, $day) = @_;
+    eval { my $t = timelocal(0, 0, 0, $day, ($month - 1), $year); };
+    return if $@;
+    return 1;
+}
