@@ -16,7 +16,8 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "ExtUtils::MakeMaker" : "0",
+            "File::ShareDir::Install" : "0.06"
          }
       },
       "develop" : {
@@ -30,6 +31,7 @@
          "requires" : {
             "Data::Random" : "0",
             "Date::Calc" : "0",
+            "File::Share" : "0",
             "perl" : "5.008007"
          }
       },
@@ -55,7 +57,7 @@
          "web" : "https://github.com/mbeijen/Data-RandomPerson"
       }
    },
-   "version" : "0.50",
+   "version" : "0.51",
    "x_contributors" : [
       "Peter Hickman <peterhickman386@googlemail.com>"
    ]

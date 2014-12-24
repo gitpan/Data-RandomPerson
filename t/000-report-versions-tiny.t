@@ -51,6 +51,8 @@ sub pmver {
 eval { $v .= pmver('Data::Random','any version') };
 eval { $v .= pmver('Date::Calc','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','any version') };
+eval { $v .= pmver('File::Share','any version') };
+eval { $v .= pmver('File::ShareDir::Install','0.06') };
 eval { $v .= pmver('File::Spec','any version') };
 eval { $v .= pmver('IO::Handle','any version') };
 eval { $v .= pmver('IPC::Open3','any version') };

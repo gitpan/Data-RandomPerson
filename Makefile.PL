@@ -7,13 +7,18 @@ use 5.008007;
 
 use ExtUtils::MakeMaker;
 
+use File::ShareDir::Install;
+$File::ShareDir::Install::INCLUDE_DOTFILES = 1;
+$File::ShareDir::Install::INCLUDE_DOTDIRS = 1;
+install_share dist => "share";
 
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Create random person data.",
   "AUTHOR" => "Michiel Beijen <michiel.beijen\@gmail.com>",
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0
+    "ExtUtils::MakeMaker" => 0,
+    "File::ShareDir::Install" => "0.06"
   },
   "DISTNAME" => "Data-RandomPerson",
   "EXE_FILES" => [],
@@ -22,7 +27,8 @@ my %WriteMakefileArgs = (
   "NAME" => "Data::RandomPerson",
   "PREREQ_PM" => {
     "Data::Random" => 0,
-    "Date::Calc" => 0
+    "Date::Calc" => 0,
+    "File::Share" => 0
   },
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
@@ -31,7 +37,7 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.88",
     "Time::Local" => "1.18"
   },
-  "VERSION" => "0.50",
+  "VERSION" => "0.51",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -42,6 +48,8 @@ my %FallbackPrereqs = (
   "Data::Random" => 0,
   "Date::Calc" => 0,
   "ExtUtils::MakeMaker" => 0,
+  "File::Share" => 0,
+  "File::ShareDir::Install" => "0.06",
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
@@ -61,5 +69,10 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 
 WriteMakefile(%WriteMakefileArgs);
 
+{
+package
+MY;
+use File::ShareDir::Install qw(postamble);
+}
 
 
